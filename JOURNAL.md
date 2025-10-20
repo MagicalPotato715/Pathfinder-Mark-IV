@@ -83,3 +83,25 @@ https://www.aliexpress.us/item/3256809807051529.html?spm=a2g0o.productlist.main.
 
   
 
+## 10/19/2025 - Making the Schematic  
+
+I'm starting by routing the NRF Chip, then the BNO055
+
+I'm having a bit of trouble with the CE and CSN point on the NRF, there isn't a designated pin on the Teensy for it. After asking google, I think I should connect CSN to a random CS pin and CE to any GPIO.
+
+![card11a_rev3_web.png](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6MzUyOSwicHVyIjoiYmxvYl9pZCJ9fQ==--a717ea1e85e8d4382817f7fbd447d5b3d34cfee7/card11a_rev3_web.png)
+^^ This image is very helpful for figuring out pinouts.
+
+For the power system, I'm going to do an approach similar to Aecert's hexapod's power system. Battery in connects to a switch, which has three primary connections: 
+ - first, connection to a buck converter breakout board (to supply the teensy with 5V), 
+ - next, the battery output goes through a voltage divider and into an analog pin (to read voltage) (there's also a 3v3 rapid dropout zener diode next to it in case of voltage spikes). I made the primary resisors of the voltage divider THT, but also added pads underneath so I *could* also use SMD (or vice versa).
+ - finally, there's the servo motor power line with 2 16v 1500uf electrolytic capacitors for current smoothing.
+
+I spent a lot of time figuring out the voltage divider, and more specifically, what resistance the resistors should be.
+Note: I also had to learn what a zener diode does; it seems incredibly useful. 
+
+Update: did a lil more work, think I'll stop here.
+![Screenshot 2025-10-19 at 8.27.31 PM.png](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6MzY1MywicHVyIjoiYmxvYl9pZCJ9fQ==--d10cb0f4b26da2277089e52cb44d8c370fd5ab92/Screenshot%202025-10-19%20at%208.27.31%E2%80%AFPM.png)
+
+  
+
