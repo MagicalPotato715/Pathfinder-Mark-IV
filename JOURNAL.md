@@ -6,10 +6,6 @@
   ==================================================================
 -->
 
-This is my journal of the design and building process of **Pathfinder Mark IV - Hexapod**.  
-You can view this journal in more detail on **Hack Club Blueprint** [here](https://blueprint.hackclub.com/projects/685).
-
-
 ## 10/18/2025 - Planning & Scouting Stage  
 
 Before I begin Pathfinder MK IV, I need to carefully plan out what it's going to have (and mainly why MK III failed).
@@ -103,5 +99,49 @@ Note: I also had to learn what a zener diode does; it seems incredibly useful.
 Update: did a lil more work, think I'll stop here.
 ![Screenshot 2025-10-19 at 8.27.31 PM.png](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6MzY1MywicHVyIjoiYmxvYl9pZCJ9fQ==--d10cb0f4b26da2277089e52cb44d8c370fd5ab92/Screenshot%202025-10-19%20at%208.27.31%E2%80%AFPM.png)
 
+  
+
+## 10/25/2025 - More routing & configuring servo lines  
+
+(vvv this is a pinout diagram of the teensy)
+![card11a_rev3_web (1)](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NTUwNSwicHVyIjoiYmxvYl9pZCJ9fQ==--8ef85575918a25a0fb8935f5ae6ac86b2b4d0119/card11a_rev3_web%20(1).png)
+^I used this diagram by PJRC to figure out the routing.
+
+Since there's >9 PWM pins on either side of the Teensy, I think I'll have the Teensy be vertical on the PCB and have rows of servo pins either side.
+
+The pinouts I decided were:
+Leg 1: Top Left
+- Coxa: 0
+- Femur: 1
+- Tibia: 2
+Leg 2: Mid Left
+- Coxa: 3
+- Femur: 4
+- Tibia: 5
+Leg 3: Bot Left
+- Coxa: 6
+- Femur: 7
+- Tibia: 8
+Leg 4: Bot Right
+- Coxa: 37
+- Femur: 36
+- Tibia: 33
+Leg 5: Mid Right
+- Coxa: 18
+- Femur: 15
+- Tibia: 14
+Leg 6: Top Right
+- Coxa: 23
+- Femur: 22
+- Tibia: 19
+
+I had trouble finding the left side PWM pins. ![Screenshot 2025-10-25 at 12.34.22 PM](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NTUyMSwicHVyIjoiYmxvYl9pZCJ9fQ==--7e952e8997a92028c96226a674f62b1e17c8534b/Screenshot%202025-10-25%20at%2012.34.22%E2%80%AFPM.png)
+Notice how the pins 2-12 either aren't listed on the schematic or have a different pin title?
+This is made harder by the teensy not having a user manual for which pins are essential to leave open.
+
+![Screenshot 2025-10-25 at 1.13.10 PM](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NTU0MSwicHVyIjoiYmxvYl9pZCJ9fQ==--09781e29d8cd2e758c393e6e21a7e038cf5fc20b/Screenshot%202025-10-25%20at%201.13.10%E2%80%AFPM.png)
+I added two push buttons that can short the PROGRAM and ON/OFF pins to GND. Supposedly, if PROGRAM is connected to GND for 15 seconds, the default blink script is loaded. Also, if ON/OFF is connected to GND for 5 seconds, the Teensy turns off and waits for another GND connection.
+
+I'm currently considering whether (and more importantly how) to use TOF sensors on it.
   
 
