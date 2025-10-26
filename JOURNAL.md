@@ -145,3 +145,32 @@ I added two push buttons that can short the PROGRAM and ON/OFF pins to GND. Supp
 I'm currently considering whether (and more importantly how) to use TOF sensors on it.
   
 
+## 10/26/2025 - Calibrating Servos  
+
+ugh, calibrating 18 servos...
+![PXL_20251025_214402680.MP](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NTc5MCwicHVyIjoiYmxvYl9pZCJ9fQ==--ec6e807b2b8ea5a5b8581d2163211fb2e6b2378d/PXL_20251025_214402680.MP.jpg)
+
+^^ this is my setup for calibrating.
+
+Btw, if yall wonder how I'm calibrating these servos:
+I basically just use the setup in the picture, and with my arduino I make it go to 45 degrees and 135 degrees. It usually doesn't line up exactly so I end up having to tweak the numbers until I can get an exact line up on both rods.
+![Screenshot 2025-10-26 at 1.14.12 PM](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NTc5MiwicHVyIjoiYmxvYl9pZCJ9fQ==--a8f57aaec16fdf7cc896487d5e3fe623881512fe/Screenshot%202025-10-26%20at%201.14.12%E2%80%AFPM.png)
+
+Next I take the two values, and plug it into a Desmos system I made to solve for the linear equations of the offsets (it solves for slope and y-intercept - Algebra 1 go brrr).
+![Screenshot 2025-10-26 at 1.14.40 PM](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NTc5MywicHVyIjoiYmxvYl9pZCJ9fQ==--383dda403cc12e6b6fb27b65f111e825d4f70719/Screenshot%202025-10-26%20at%201.14.40%E2%80%AFPM.png)
+
+After that, I store the values into lists in the code (I have 2 lists for each leg, 1 contains the three slopes and the other contains the 3 intercepts.)
+![Screenshot 2025-10-26 at 1.16.00 PM](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NTc5NCwicHVyIjoiYmxvYl9pZCJ9fQ==--27e56e2ac013b9351e202b8cc6b2709146f3fe74/Screenshot%202025-10-26%20at%201.16.00%E2%80%AFPM.png)
+
+Also, with these equations, I just map the values I want the servos to move to into them to get the proper orders.
+
+![Screenshot 2025-10-26 at 4.32.05 PM](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NTg1MiwicHVyIjoiYmxvYl9pZCJ9fQ==--25655bb03737ce93c2542528fcb0d5913e23d847/Screenshot%202025-10-26%20at%204.32.05%E2%80%AFPM.png)![PXL_20251026_233253564.MP](/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NTg1MywicHVyIjoiYmxvYl9pZCJ9fQ==--c8857b42bbcbc9dab9f548dafdb5396a5daf0784/PXL_20251026_233253564.MP.jpg)
+
+This took soo lonnggggggggggg. I'm gonna get an electric screwdriver so it doesn't hurt my fingers this much.
+
+
+
+
+
+  
+
