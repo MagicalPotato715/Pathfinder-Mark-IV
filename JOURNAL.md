@@ -174,3 +174,23 @@ This took soo lonnggggggggggg. I'm gonna get an electric screwdriver so it doesn
 
   
 
+## 10/28/2025 - Layout & New additions  
+
+Lots of work.
+
+I added an I2C expander (w/passives) and 18 LEDs connected to servo PWM signals, and headers to expose the pins that I'm not using. I also began to sort out the layout of the PCB.
+
+Unfortunately, after like an hour and a half of work, I accidentally closed KiCad without saving and lost all of that progress...
+
+Later, I managed to redo all of the work.
+![Screenshot 2025-10-28 at 6.59.44 PM](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NjQyNywicHVyIjoiYmxvYl9pZCJ9fQ==--37e1ea267bb2639bf9656e835de819be7a3048d6/Screenshot%202025-10-28%20at%206.59.44%E2%80%AFPM.png)
+I added the I2C expander because the Teensy ran out of SDA and SCL pins, and I wanted the option to add ToF sensors that run on I2C.
+
+For the Layout, I put many of the components on the back side to save space.
+![Screenshot 2025-10-28 at 7.01.17 PM](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NjQyOCwicHVyIjoiYmxvYl9pZCJ9fQ==--30999d711c230d0390935a6e40799a5100452e12/Screenshot%202025-10-28%20at%207.01.17%E2%80%AFPM.png)
+Mainly things such as decoupling capacitors and passives. I managed to reduce the size of the LED setups by having the resistors on the back with a via connecting them.
+
+AGGGH I spent so long routing... (probably evident in the photo)
+![Screenshot 2025-10-28 at 9.22.20 PM](https://blueprint.hackclub.com/user-attachments/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NjQzNywicHVyIjoiYmxvYl9pZCJ9fQ==--495777aa4af708f87cf921eeb155008f7c781f76/Screenshot%202025-10-28%20at%209.22.20%E2%80%AFPM.png)
+  
+
