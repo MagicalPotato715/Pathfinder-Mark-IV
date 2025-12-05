@@ -1,4 +1,9 @@
 # Pathfinder-Mark-IV
+**IMPORTANT FOR REVIEWERS**: 
+ - 1. The PCB price *really* is at the lowest it could possibly be, it's not possible to lower the price OR try to find a cheaper fab, I already thoroughly went through this with the reviewer @technical_ and he said that it's acceptable.
+ - 2. The BOM is already optimized, and NO the parts on Aliexpress and Digikey cannot be sourced from LCSC (technically, LCSC does *sell* the terminal block, but the one seller's out of stock and has been for a while).
+If you don't believe me, ask @technical_
+
 What: Mark IV will be the fourth generation of my hexapod line: Pathfinder (not to be confused with the Hack Club YSWS). Mark IV will feature major consistency improvements to Mark III (mainly just not featuring buck converters). Additionally, Mark IV has an I2C expander connected to 8 ToF sensors that should allow the finished robot to have some form of autonomous movement.
 
 Note: This project primarily focuses on the PCB of the Mark IV, as the body has already been printed, so it's a secondary focus (however, design tweaks may still be made to it).
